@@ -335,16 +335,7 @@ jQuery(function($) {
     });
 
 
-$(document).ready(function() {
-    var e = '<div class="prt_floting_customsett">'+
-                '<a href="https://support.preyantechnosys.com/" class="tmtheme_fbar_icons"><i class="fa fa-headphones"></i><span>Support</span></a>'+
-                '<a href="https://preyantechnosys.com/" class="tmtheme_fbar_icons"><i class="themifyicon themifyicon ti-pencil"></i><span>Customization</span></a>'+
-                '<a href="https://1.envato.market/4Nyen" class="tmtheme_fbar_icons"><i class="themifyicon ti-shopping-cart"></i><span class="buy_link">Buy<span></span></span></a>'+
-                '<div class="clearfix"></div>'+
-            '</div>';
 
-    $('body').append(e);
-});
 
 /*------------------------------------------------------------------------------*/
 /* Slick_slider
