@@ -2,12 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
    
-<!-- Mirrored from themetechmount.net/html/agrotek/advance/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Jan 2026 20:01:34 GMT -->
+<!-- Mirrored from themetechmount.net/html/AgroIot/advance/index.html -->
 <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="keywords" content="Agrotek - Agriculture, Dairyfarm and Gardening HTML Template, Agritek - Agriculture, Dairyfarm and Gardening WordPress Theme, themes & template, html5 template, WordPress theme, unlimited colors available, ui/ux,ui/ux design, best html template, html template, html, JavaScript, best css theme,css3, elementor theme, latest premium themes 2024, latest premium templates 2024, preyan technosys Pvt.Ltd,cymol themes, themetech mount,Web 3.0,multi-theme, website theme and template, woocommerce, bootstrap template, web templates, responsive theme,services,web design and development, business, company, agriculture, agrotourism, dairy farm, ecology, farm services, farmer, farming, food producers, gardening, milk, multi business, organic farming, organic food">
-      <meta name="description"  content="Agrotek – Agriculture HTML Template">
+      <meta name="keywords" content="Invernadero modular automatizado, agricultura, sistemas de cultivo, tecnología agrícola, invernadero inteligente">
+      <meta name="description"  content="Invernadero modular automatizado para cultivo de plantas en condiciones controladas.">
       <meta name="author" content="https://www.themetechmount.com/">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -30,35 +30,35 @@
    </head>
    <body>
 
-    <!-- page start -->
+    <!-- pagina de inicio -->
     <div class="page">
 
-         <!--header start-->
+         <!--Inicio del encabezado -->
         <header id="masthead" class="header prt-header-style-01">
 
-            <!-- topbar -->
+            <!-- Barra superior -->
             <div class="top_bar bg-base-grey clearfix">
                 <div class="container">
                     
                 </div>
             </div>
-            <!-- topbar end -->
+            <!-- barra superior final -->
 
-            <!-- site-header-menu -->
+            <!-- menú-encabezado-sitio -->
             <div id="site-header-menu" class="site-header-menu ">
                 <div class="site-header-menu-inner prt-stickable-header">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12 ">
-                                <!--site-navigation -->
+                                <!--navegación del sitio -->
                                 <div id="site-navigation" class="site-navigation align-items-center">
                                     <div class="site-navigation-content d-flex align-items-center justify-content-between">
-                                       <!-- site-branding -->
+                                       <!-- marca del sitio -->
                                        <div class="site-branding ">
-                                            <a class="home-link" href="index-2.html" title="Agrotek" rel="home">
+                                            <a class="home-link" title="Agrotek" rel="home">
                                                 <img width="164" height="38" id="logo-img" class="img-fluid auto_size" src="images/logo.webp" alt="logo-img">
                                             </a>
-                                       </div><!-- site-branding end -->
+                                       </div><!-- Fin del branding del sitio -->
                                        <div class="d-flex align-items-center">
                                            <div class="btn-show-menu-mobile menubar menubar--squeeze">
                                                <span class="menubar-box">
@@ -72,10 +72,10 @@
                                                        <a href="#inicio">Inicio</a>
                                                    </li>
                                                    <li class="mega-menu-item">
-                                                       <a href="#proyecto" class="mega-menu-link">Proyecto</a>
+                                                       <a href="#proyecto">Proyecto</a>
                                                    </li>
                                                    <li class="mega-menu-item">
-                                                       <a href="#iot" class="mega-menu-link">Arquitectura</a>
+                                                       <a href="#iot">Arquitectura</a>
                                                    </li>
                                                    <li class="mega-menu-item">
                                                        <a href="#metodologia">Metodología</a>
@@ -92,19 +92,19 @@
                                              <a class="prt-btn prt-btn-size-sm prt-btn-shape-rounded prt-btn-style-fill prt-btn-color-darkcolor" href="contact-us.html">LOGIN</a>
                                           </div>
                                        </div>
-                                    </div><!-- site-navigation end-->
+                                    </div><!-- Fin de la navegación del sitio-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- site-header-menu end-->
+            <!-- Fin del menú del encabezado del sitio -->
 
         </header>
         <!--header end-->
 
-        <!-- hero-section -->
+        <!-- Sección principal -->
         <section id="inicio" class="hero-section prt-bg bg-base-dark prt-bgimage-yes clearfix">
             <div class="prt-row-wrapper-bg-layer prt-bg-layer bg-base-dark"></div>
             <div class="container">
@@ -132,9 +132,9 @@
                </div>
             </div>
         </section>
-        <!-- hero-section-end -->
+        <!-- Fin de la sección principal -->
 
-       <!-- site-main start -->
+       <!-- Inicio del sitio principal -->
         <div class="site-main">
 
             <!--about-section-->
@@ -143,19 +143,19 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <!-- section title -->
+                            <!-- Título de la sección -->
                             <div class="section-title">
                                 <div class="title-heade">
                                     <h3>Sobre el Proyecto</h3>
                                     <h2 class="title">Invernadero modular automatizado <br> basado en IoT</h2>
                                 </div>
                             </div>
-                            <!-- section title-end -->
+                            <!-- Fin del título de la sección -->
                         </div>
                     </div>
                     <div class="row prt-boxes-spacing-60px">
                         <div class="col-lg-4 col-md-6 col-sm-12 prt-box-col-wrapper">
-                            <!--  featured-icon-box --> 
+                            <!--  cuadro-de-icono-destacado --> 
                             <div class="featured-icon-box style1">
                                 <div class="featured-icon-box-background-image">
                                     <img width="394" height="500" class="img-fluid" src="images/icon-img-1.webp" alt="icon-img-1">
@@ -168,13 +168,20 @@
                                         <h4>Diseño Modular </h4>
                                     </div>
                                     <div class="featured-title">
-                                        <h3><a href="#">Invernadero escalable y adaptable</a></h3>
+                                    <h3>
+                                        <a class="pensamiento-link">
+                                        Invernadero escalable y adaptable
+                                        <span class="burbuja-pensamiento">
+                                            Módulos inteligentes que 'piensan' por sí mismos. Automatización IoT lista para expandirse sin necesidad de reconfigurar todo el sistema
+                                        </span>
+                                    </a>
+                                    </h3>
                                     </div>
                                 </div>
-                            </div><!--  featured-icon-box END -->
+                            </div><!--  icono destacado-cuadro FIN -->
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12 prt-box-col-wrapper">
-                            <!--  featured-icon-box --> 
+                            <!--  cuadro-de-icono-destacado --> 
                             <div class="featured-icon-box style1">
                                 <div class="featured-icon-box-background-image">
                                     <img width="394" height="500" class="img-fluid" src="images/icon-img-2.webp" alt="icon-img-2">
@@ -187,13 +194,17 @@
                                         <h4>Sistema IoT</h4>
                                     </div>
                                     <div class="featured-title">
-                                        <h3><a href="#">Monitoreo ambiental en tiempo real</a></h3>
+                                        <h3><a class="pensamiento-link">Monitoreo ambiental en tiempo real
+                                            <span class="burbuja-pensamiento">
+                                            Tu invernadero te 'habla' al móvil. Revisa humedad, temperatura y luz en tiempo real, estés donde estés, para decisiones precisas.
+                                        </span>
+                                        </a></h3>
                                     </div>
                                 </div>
-                            </div><!--  featured-icon-box END -->
+                            </div><!--  icono destacado-cuadro FIN -->
                         </div>
                         <div class="col-lg-4 col-md-6  col-sm-12 prt-box-col-wrapper">
-                            <!--  featured-icon-box --> 
+                            <!--  cuadro-de-icono-destacado --> 
                             <div class="featured-icon-box style1">
                                 <div class="featured-icon-box-background-image">
                                     <img width="394" height="500" class="img-fluid" src="images/icon-img-3.webp" alt="icon-img-3">
@@ -206,30 +217,34 @@
                                         <h4>Automatización</h4>
                                     </div>
                                     <div class="featured-title">
-                                        <h3><a href="#">Riego / ventilación / alertas por umbrales</a></h3>
+                                        <h3><a class="pensamiento-link">Riego / ventilación / alertas por umbrales
+                                            <span class="burbuja-pensamiento">
+                                            Configura tus reglas y relájate. El sistema activa el riego o abre ventanas solo cuando las plantas lo necesitan, optimizando cada gota de agua.
+                                        </span>
+                                        </a></h3>
                                     </div>
                                 </div>
-                            </div><!--  featured-icon-box END -->
+                            </div><!--  icono destacado-cuadro FIN -->
                         </div>
                     </div>
                 </div>
             </section>
-            <!--about-section-end -->
+            <!-- Acerca de - Fin de la sección -->
 
-            <!-- padding_zero-section-->
+            <!-- relleno_sección_cero-->
             <section id="iot" class="prt-row prt-bg bg-base-lightgrey padding_zero-section clearfix">
                 <div class="spacing-1 prt-bg bg-base-dark bg-img2 border-rad_50 overflow-hidden">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                                <!-- section title -->
+                                <!-- Título de la sección -->
                                 <div class="section-title">
                                     <div class="title-heade">
                                         <h3>Sistema IoT</h3>
                                         <h2 class="title">Arquitectura y componentes del invernadero</h2>
                                     </div>
                                 </div>
-                                <!-- section title-end -->
+                                <!-- Fin del título de la sección -->
                             </div>
                         </div>
                         <div class="row">
@@ -250,7 +265,7 @@
                                             <a href="#">Dashboard y monitoreo</a></li>
                                     </ul>
                                     <div class="content-tab">
-                                        <!-- content-inner -->
+                                        <!-- contenido-interior -->
                                         <div class="content-inner active">
                                            <div class="content-inner-text">
                                                 <div class="row align-items-center">
@@ -287,9 +302,9 @@
                                                     </div>
                                                 </div>
                                             </div> 
-                                        </div><!-- content-inner end--> 
+                                        </div><!-- contenido-interior fin--> 
                                         
-                                        <!-- content-inner -->
+                                        <!-- contenido-interior -->
                                         <div class="content-inner">
                                            <div class="content-inner-text">
                                                 <div class="row align-items-center">
@@ -326,8 +341,8 @@
                                                     </div>
                                                 </div>
                                             </div> 
-                                        </div><!-- content-inner end-->
-                                        <!-- content-inner -->
+                                        </div><!-- contenido-interior fin-->
+                                        <!-- contenido-interior -->
                                         <div class="content-inner">
                                            <div class="content-inner-text">
                                                 <div class="row align-items-center">
@@ -364,8 +379,8 @@
                                                     </div>
                                                 </div>
                                             </div> 
-                                        </div><!-- content-inner end--> 
-                                        <!-- content-inner -->
+                                        </div><!-- contenido-interior fin--> 
+                                        <!-- contenido-interior -->
                                         <div class="content-inner">
                                            <div class="content-inner-text">
                                                 <div class="row align-items-center">
@@ -402,7 +417,7 @@
                                                     </div>
                                                 </div>
                                             </div> 
-                                        </div><!-- content-inner end-->
+                                        </div><!-- contenido-interior fin-->
                                     </div>
                                  </div>
                             </div>
@@ -432,9 +447,9 @@
                     </div>
                 </div>
             </section>
-            <!-- padding_zero-section-end -->
+            <!-- relleno_sección_cero_final -->
 
-            <!-- service-section -->
+            <!-- sección de servicios -->
             <section class="prt-row prt-bg bg-base-lightgrey service-section clearfix">
                 <div class="container">
                     <div class="row">
@@ -444,7 +459,7 @@
                             <div class="prt-bg prt-col-bgimage-yes col-bg-img-one spacing-2">
                                 <div class="prt-col-wrapper-bg-layer prt-bg-layer border-rad_50"></div>
 
-                                <!-- section title -->
+                                <!-- Título de la sección -->
                                 <div class="section-title style1">
                                     <div class="title-heade">
                                         <h3>Impacto del Proyecto</h3>
@@ -454,7 +469,7 @@
                                         </h2>
                                     </div>
                                 </div>
-                                <!-- section title-end --> 
+                                <!-- Fin del título de la sección --> 
 
                                 <p class="mt-15">
                                     El sistema propuesto mejora el control ambiental del invernadero,
@@ -508,28 +523,28 @@
                     </div>
                 </div>
             </section>
-            <!-- service-section-end -->
+            <!-- Fin de la sección de servicios -->
 
-            <!-- step-section -->
+            <!-- sección escalonada -->
             <section id="metodologia" class="prt-row prt-bg bg-base-grey bg-img3 prt-bgimage-yes step-section">
                 <div class="prt-row-wrapper-bg-layer prt-bg-layer bg-base-grey"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            <!-- section title -->
+                            <!-- Título de la sección -->
                             <div class="section-title">
                                 <div class="title-heade">
                                     <h3>Metodología de trabajo</h3>
                                     <h2 class="title">Cómo se desarrolló el proyecto</h2>
                                 </div>
                             </div>
-                            <!-- section title-end -->
+                            <!-- Fin del título de la sección -->
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="accordion pl-0" id="accordionExample">
-                                <!-- accordion-item -->
+                                <!-- elemento de acordeón -->
                                 <div class="accordion-item">
                                     <div class="accordion-header">
                                         <a href="#" class="accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -565,8 +580,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- accordion-item-end -->
-                                <!-- accordion-item -->
+                                <!-- acordeón-elemento-fin -->
+                                <!-- elemento de acordeón -->
                                 <div class="accordion-item">
                                     <div class="accordion-header">
                                         <a href="#" class="accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
@@ -602,8 +617,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- accordion-item-end -->
-                                <!-- accordion-item -->
+                                <!-- acordeón-elemento-fin -->
+                                <!-- elemento de acordeón -->
                                 <div class="accordion-item">
                                     <div class="accordion-header">
                                         <a href="#" class="accordion-button"  data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
@@ -639,15 +654,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- accordion-item-end -->
+                                <!-- acordeón-elemento-fin -->
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- step-section-emd -->
+            <!-- Fin de sección de pasos -->
 
-            <!-- team-section -->
+            <!-- csección del equipo -->
             <section  class="prt-row prt-bg bg-base-lightgrey bg-img4 prt-bgimage-yes team-section clearfix">
             <div class="container">
                 <div class="row g-0 align-items-center">
@@ -661,7 +676,7 @@
                         <div class="featured-imagebox featured-imagebox-team style1 mr-15 res-767-mr-0">
                         <div class="featured-content">
                             <div class="featured-title">
-                            <h3><a href="#">Autor del proyecto</a></h3>
+                            <h3><a>Autor del proyecto</a></h3>
                             </div>
                             <div class="featured-position">
                             <p>Investigador – Ingeniería</p>
@@ -679,7 +694,7 @@
                         <div class="featured-imagebox featured-imagebox-team style1 ml-15 res-767-ml-0 mt-90 res-991-mt-15">
                         <div class="featured-content">
                             <div class="featured-title">
-                            <h3><a href="#">Tutor / Asesor</a></h3>
+                            <h3><a>Tutor / Asesor</a></h3>
                             </div>
                             <div class="featured-position">
                             <p>Guía académico</p>
@@ -697,7 +712,7 @@
                         <div class="featured-imagebox featured-imagebox-team style1 mr-15 res-767-mr-0 mt_60 res-991-mt-15">
                         <div class="featured-content">
                             <div class="featured-title">
-                            <h3><a href="#">Institución</a></h3>
+                            <h3><a>Institución</a></h3>
                             </div>
                             <div class="featured-position">
                             <p>Universidad / Carrera</p>
@@ -715,7 +730,7 @@
                         <div class="featured-imagebox featured-imagebox-team style1 ml-15 res-767-ml-0">
                         <div class="featured-content">
                             <div class="featured-title">
-                            <h3><a href="#">Área de implementación</a></h3>
+                            <h3><a>Área de implementación</a></h3>
                             </div>
                             <div class="featured-position">
                             <p>Taraco – La Paz</p>
@@ -761,9 +776,9 @@
                 </div>
             </div>
             </section>
-            <!-- team-section-end -->
+            <!-- fin-de-sección-equipo -->
 
-             <!-- kpi-section -->
+             <!-- sección kpi -->
             <section id="resultados" class="prt-row prt-bg bg-base-lightgrey padding_zero-section clearfix">
             <div class="spacing-4 prt-bg bg-base-dark bg-img5 border-rad_50 overflow-hidden">
                 <div class="container">
@@ -882,10 +897,10 @@
                 </div>
             </div>
             </section>
-            <!-- kpi-section-end -->
+            <!-- Fin de la sección KPI -->
 
         </div>
-        <!-- site-main end-->
+        <!-- sitio-principal fin-->
 
         <!-- footer start -->
         <footer class="footer widget-footer bg-base-grey clearfix">
@@ -901,7 +916,7 @@
                 <div class="widget widget_text clearfix">
                     <div class="footer-logo">
                     <img id="footer-logo-img" class="img-fluid auto_size" height="50" width="240"
-                        src="images/footer-logo.webp" alt="logo proyecto">
+                        src="images/logo.webp" alt="logo proyecto">
                     </div>
 
                     <div class="textwidget widget-text">
@@ -956,9 +971,9 @@
                         <div class="footer-widget-box res-767-mt-20">
                         <h3 class="widget-title-h3">Contacto</h3>
                         <ul class="menu-footer-link">
-                            <li><a class="hotline-link-email" href="mailto:tuemail@correo.com">tuemail@correo.com</a></li>
+                            <li><a class="hotline-link-email" href="mailto:choquejosean@gmail.com">choquejosean@gmail.com</a></li>
                             <li><a href="#contacto" class="hotline-link">Formulario de contacto</a></li>
-                            <li>Autor: (Tu nombre) — Tutor: (Nombre del tutor)</li>
+                            <li>Autor: Josean Choque Quispe — Tutor: Ing. Mario Gonzalo Quispe Challco</li>
                         </ul>
                         </div>
                     </div>
@@ -999,17 +1014,17 @@
         </div>
 
         </footer>
-        <!-- footer end -->
+        <!-- final del pie de página -->
 
 
-        <!-- back-to-top start -->
+        <!-- Volver al inicio -->
         <a id="totop" href="#top">
             <i class="fa fa-angle-up"></i>
         </a>
-        <!-- back-to-top end -->
+        <!-- vuelta al extremo superior -->
 
     </div>
-    <!-- page end -->
+    <!-- Fin de la página -->
 
       <!-- Javascript -->
       <script src="js/jquery-3.7.1.min.js"></script>
@@ -1039,5 +1054,5 @@
       </script>
    </body>
 
-<!-- Mirrored from themetechmount.net/html/agrotek/advance/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Jan 2026 20:01:34 GMT -->
+<!-- Mirrored from themetechmount.net/html/agroiot/advance/index.html -->
 </html>

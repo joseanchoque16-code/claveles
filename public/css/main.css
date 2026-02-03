@@ -414,6 +414,99 @@ label { font-size: 14px; }
     bottom: 0px;
     left: 0;
 }
+/* Contenedor principal del enlace */
+.pensamiento-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* La burbuja principal */
+.burbuja-pensamiento {
+    background-color: rgba(255, 255, 255, 0.95); /* Blanco con mínima transparencia */
+    border: 1.5px solid #28a745;
+    color: #444;
+    font-family: 'Poppins', sans-serif; /* O la fuente que uses en tu proyecto */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra muy suave */
+    visibility: hidden;
+    width: 200px;
+    text-align: center;
+    border-radius: 20px;
+    padding: 15px;
+    position: absolute;
+    z-index: 100;
+    bottom: 110%; /* Aparece arriba */
+    left: 80%;    /* Desplazada a la derecha */
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: normal;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* El círculo mediano del pensamiento */
+.burbuja-pensamiento::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    bottom: -12px;
+    left: 20px;
+}
+
+/* El círculo pequeño del pensamiento */
+.burbuja-pensamiento::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border: 2px solid #28a745;
+    border-radius: 50%;
+    bottom: -22px;
+    left: 5px;
+}
+
+/* Mostrar al pasar el mouse (hover) */
+.pensamiento-link:hover .burbuja-pensamiento {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-10px);
+}
+/* Ajuste para modo teléfono (Pantallas menores a 768px) */
+@media (max-width: 767px) {
+    .burbuja-pensamiento {
+        left: 50% !important;   /* Centra la burbuja */
+        margin-left: -100px;    /* La mitad del ancho para centrado perfecto */
+        width: 200px;           /* Ancho fijo para que no desborde */
+        bottom: 120%;           /* La sube un poco más para que no tape el dedo */
+    }
+
+    /* Ocultamos los circulitos de pensamiento en móvil para ganar espacio y limpieza */
+    .burbuja-pensamiento::before, 
+    .burbuja-pensamiento::after {
+        display: none; 
+    }
+    
+    /* Añadimos una flechita simple hacia abajo en su lugar */
+    .burbuja-pensamiento::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #ffffff transparent transparent transparent; /* Flecha blanca */
+    }
+}
+/*fin pensamiento*/
 
 /* ===============================================
     Spacing
