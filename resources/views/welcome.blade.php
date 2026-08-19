@@ -1,17 +1,22 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
    
-<!-- Mirrored from themetechmount.net/html/AgroIot/advance/index.html -->
+<!-- Landing - Proyecto de Grado: Invernadero IoT para claveles (Taraco, La Paz) -->
 <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="keywords" content="Invernadero modular automatizado, agricultura, sistemas de cultivo, tecnología agrícola, invernadero inteligente">
-      <meta name="description"  content="Invernadero modular automatizado para cultivo de plantas en condiciones controladas.">
-      <meta name="author" content="https://www.themetechmount.com/">
+      <meta name="keywords" content="Diseño de invernadero automatizado, IoT, ESP32, cultivo de claveles, Taraco, La Paz, agricultura de precisión, monitoreo ambiental, riego automatizado, dashboard IoT">
+      <meta name="description" content="Proyecto de grado: diseño de un invernadero automatizado basado en IoT (ESP32) para la producción de claveles en el municipio de Taraco, La Paz. Monitoreo y control de temperatura, humedad, luz y riego.">
+      <meta name="author" content="Josean Choque Quispe">
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <title>Invernadero modular automatizado</title>
+<!-- Open Graph -->
+<meta property="og:title" content="Diseño de un Invernadero Automatizado basado en IoT para Claveles | Taraco – La Paz">
+<meta property="og:description" content="Proyecto de grado: invernadero automatizado con IoT para la producción de claveles en Taraco – La Paz.">
+<meta property="og:type" content="website">
+
+<title>Diseño de un Invernadero Automatizado basado en IoT para Claveles | Taraco – La Paz</title>
       <link rel="shortcut icon" href="images/favicon.webp">
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/animate.css">
@@ -55,7 +60,7 @@
                                     <div class="site-navigation-content d-flex align-items-center justify-content-between">
                                        <!-- marca del sitio -->
                                        <div class="site-branding ">
-                                            <a class="home-link" title="Agrotek" rel="home">
+                                            <a class="home-link" title="Invernadero IoT para claveles" rel="home">
                                                 <img width="164" height="38" id="logo-img" class="img-fluid auto_size" src="images/logo.webp" alt="logo-img">
                                             </a>
                                        </div><!-- Fin del branding del sitio -->
@@ -89,7 +94,7 @@
                                                </ul>
                                            </nav><!-- menu end -->
                                           <div class="header_btn btn-hover">
-                                             <a class="prt-btn prt-btn-size-sm prt-btn-shape-rounded prt-btn-style-fill prt-btn-color-darkcolor" href="contact-us.html">LOGIN</a>
+                                             <a class="prt-btn prt-btn-size-sm prt-btn-shape-rounded prt-btn-style-fill prt-btn-color-darkcolor" href="{{ route('login') }}">LOGIN</a>
                                           </div>
                                        </div>
                                     </div><!-- Fin de la navegación del sitio-->
@@ -112,8 +117,11 @@
                   <div class="col-lg-12">
                      <div class="hero-content-block">
                         <div class="hero-content">
-                            <h1 class="title Header-right">Invernadero modular</h1>
+                            <h1 class="title Header-right">Invernadero </h1>
                             <h1 class="title Header-left">Automatizado <span>con IoT</span></h1>
+                            <p class="hero-subtitle" style="max-width: 920px; margin: 14px 0 0; opacity: .9;">
+                                Diseño de un invernadero automatizado basado en IoT para la producción de claveles en el municipio de Taraco – La Paz
+                            </p>
                         </div>
                      </div>
                   </div>
@@ -121,12 +129,12 @@
                <div class="row prt-vertical_sep style1 pt-30">
                   <div class="col-xl-7 col-lg-5 col-md-12">
                      <div class="text-end mr-30 res-991-mb-20 res-991-mr-0">
-                        <a class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-btn-color-lightgreycolor" href="about-us.html">Incio de sesion</a>
+                        <a class="prt-btn prt-btn-size-md prt-btn-shape-rounded prt-btn-style-fill prt-btn-color-lightgreycolor" href="{{ route('login') }}">Incio de sesion</a>
                      </div>
                   </div>
                   <div class="col-xl-5 col-lg-7 col-md-12">
                      <div class="hero-content-title-desc">
-                        <p>Producción de claveles en Taraco – La Paz, con monitoreo y control ambiental en tiempo real </p>
+                        <p>Innovación tecnológica en el municipio de Taraco para la agricultura de precisión en el Altiplano paceño.</p>
                      </div>
                   </div>
                </div>
@@ -147,7 +155,7 @@
                             <div class="section-title">
                                 <div class="title-heade">
                                     <h3>Sobre el Proyecto</h3>
-                                    <h2 class="title">Invernadero modular automatizado <br> basado en IoT</h2>
+                                    <h2 class="title">Diseño de un invernadero automatizado <br> basado en IoT para claveles</h2>
                                 </div>
                             </div>
                             <!-- Fin del título de la sección -->
@@ -165,14 +173,14 @@
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-subtitle">
-                                        <h4>Diseño Modular </h4>
+                                        <h4>Diseño Integrado</h4>
                                     </div>
                                     <div class="featured-title">
                                     <h3>
                                         <a class="pensamiento-link">
                                         Invernadero escalable y adaptable
                                         <span class="burbuja-pensamiento">
-                                            Módulos inteligentes que 'piensan' por sí mismos. Automatización IoT lista para expandirse sin necesidad de reconfigurar todo el sistema
+                                            Estructura y distribución de equipos pensadas para el clima de Taraco. Automatización IoT con posibilidad de ampliación futura sin cambiar la lógica de control.
                                         </span>
                                     </a>
                                     </h3>
@@ -511,8 +519,8 @@
                                     <div class="pt-15">
                                         <a class="prt-btn prt-btn-size-md prt-btn-shape-rounded 
                                                 prt-btn-style-fill prt-btn-color-dark"
-                                        href="/dashboard">
-                                        Acceder al dashboard
+                                        href="{{ route('login') }}">
+                                        Acceder al panel
                                         </a>
                                     </div>
 
@@ -555,7 +563,7 @@
                                                         <span class="number"></span>
                                                         </div>
                                                         <div class="step-box-title">
-                                                            <h3>Diseño del invernadero modular</h3>
+                                                            <h3>Diseño del invernadero</h3>
                                                         </div> 
                                                     </div>
                                                     <div class="featured-thumbnail">
@@ -572,8 +580,8 @@
                                                 <div class="tm-desc">
                                                     <p>
                                                         Se definieron los requerimientos del cultivo de clavel y las condiciones del municipio de Taraco,
-                                                        para dimensionar el módulo del invernadero, materiales, ventilación y disposición de equipos.
-                                                        El diseño modular permite escalabilidad y facilidad de montaje.
+                                                        para dimensionar la estructura del invernadero, materiales, ventilación y disposición de equipos.
+                                                        El diseño propuesto prioriza facilidad de montaje, mantenimiento y operación, con posibilidad de ampliación futura.
                                                     </p>
                                             </div>
                                             </div>
@@ -676,10 +684,10 @@
                         <div class="featured-imagebox featured-imagebox-team style1 mr-15 res-767-mr-0">
                         <div class="featured-content">
                             <div class="featured-title">
-                            <h3><a>Autor del proyecto</a></h3>
+                            <h3><a>Postulante Josean Choque Quispe</a></h3>
                             </div>
                             <div class="featured-position">
-                            <p>Investigador – Ingeniería</p>
+                            <h3> Ingeniería Electromecánica</h3>
                             </div>
                             <div class="featured-thumbnail">
                             <img width="299" height="351" class="img-fluid"
@@ -697,7 +705,7 @@
                             <h3><a>Tutor / Asesor</a></h3>
                             </div>
                             <div class="featured-position">
-                            <p>Guía académico</p>
+                            <h3>Ing. Mario G. Quispe Challco</h3>
                             </div>
                             <div class="featured-thumbnail">
                             <img width="299" height="351" class="img-fluid"
@@ -715,7 +723,7 @@
                             <h3><a>Institución</a></h3>
                             </div>
                             <div class="featured-position">
-                            <p>Universidad / Carrera</p>
+                            <h3>Universidad Loyola / Ingeniería Electromecánica</h3>
                             </div>
                             <div class="featured-thumbnail">
                             <img width="299" height="351" class="img-fluid"
@@ -733,7 +741,7 @@
                             <h3><a>Área de implementación</a></h3>
                             </div>
                             <div class="featured-position">
-                            <p>Taraco – La Paz</p>
+                            <h3>Taraco – La Paz</h3>
                             </div>
                             <div class="featured-thumbnail">
                             <img width="299" height="351" class="img-fluid"
@@ -756,7 +764,7 @@
                         </div>
                         <div class="title-desc mt-25">
                         <p>
-                            Proyecto orientado al diseño e implementación de un invernadero modular automatizado basado en IoT
+                            Proyecto orientado al diseño e implementación de un invernadero automatizado basado en IoT
                             para la producción de claveles en el municipio de Taraco – La Paz, integrando sensores, control,
                             plataforma web y monitoreo en tiempo real.
                         </p>
@@ -793,7 +801,7 @@
                         </div>
                         <div class="title-desc mt-25">
                         <p>
-                            Indicadores clave para evaluar el funcionamiento del invernadero modular automatizado
+                            Indicadores clave para evaluar el funcionamiento del invernadero automatizado
                             basado en IoT, aplicado al cultivo de clavel en Taraco – La Paz.
                         </p>
                         </div>
@@ -835,7 +843,7 @@
                             <div class="prt-circle"></div>
                             <div class="prt-circle-boxcontent"><div class="prt-fid-number"></div></div>
                             </div>
-                            <div class="prt-fid-content">
+                              <div class="prt-fid-content">
                             <h3 class="prt-fid-title">Disponibilidad del sistema</h3>
                             <div class="prt-fid-desc">Tiempo operativo del monitoreo y control (conectividad, sensores y plataforma).</div>
                             </div>
@@ -921,7 +929,7 @@
 
                     <div class="textwidget widget-text">
                     <p>
-                        Diseño de un invernadero modular automatizado basado en IoT para la producción de claveles,
+                        Diseño de un invernadero automatizado basado en IoT para la producción de claveles,
                         integrando sensores ambientales, actuadores, API REST, base de datos y dashboard de monitoreo.
                     </p>
                     </div>
@@ -961,7 +969,7 @@
                         <ul class="menu-footer-link">
                             <li>Municipio de Taraco – La Paz</li>
                             <li>Producción: cultivo de clavel</li>
-                            <li>Implementación: invernadero modular</li>
+                            <li>Implementación: invernadero automatizado</li>
                         </ul>
                         </div>
                     </div>
@@ -1054,5 +1062,5 @@
       </script>
    </body>
 
-<!-- Mirrored from themetechmount.net/html/agroiot/advance/index.html -->
+<!-- Mirrored from themetechmount.net/html/agrotek/advance/index.html -->
 </html>
