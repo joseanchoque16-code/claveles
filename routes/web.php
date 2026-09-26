@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     // ✅ ACTUADORES (admin u operador)
     Route::get('/actuadores', [ActuadorController::class, 'index'])
         ->middleware('role:admin,operador')
-        ->name('dispositivos.index');
+        ->name('actuadores.index');
 
     // ✅ Manual ON/OFF (admin u operador)
     Route::post('/dispositivos/{dispositivo}/manual', [DispositivoManualController::class, 'setEstado'])
