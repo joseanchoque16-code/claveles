@@ -14,11 +14,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->alias([
-            'role' => \App\Http\Middleware\RoleMiddleware::class,
-            'iot.key' => \App\Http\Middleware\IotKeyMiddleware::class,
-        ]);
-    })
+
+    $middleware->trustProxies(at: '*');
+
+    $middleware->alias([
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+        'iot.key' => \App\Http\Middleware\IotKeyMiddleware::class,
+    ]);
+})
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->respond(function (Response $response, \Throwable $e) {
             if ($e instanceof TokenMismatchException) {
