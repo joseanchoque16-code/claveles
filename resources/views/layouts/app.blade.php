@@ -50,7 +50,7 @@
     <script src="{{ asset('assets/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/simplebar/simplebar.js') }}"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-<script src="{{ asset('js/toggle-onoff.js') }}"></script>
+    <script src="{{ asset('assets/js/toggle-onoff.js') }}"></script>
 
     @stack('scripts')
 </body>
