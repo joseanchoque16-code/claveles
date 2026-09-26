@@ -5,10 +5,10 @@ document.addEventListener('click', async (e) => {
   const wrap = btn.closest('.toggle-onoff');
   if (!wrap) return;
 
-  const desired = btn.dataset.estado; // "ON" o "OFF"
+  const desired = btn.dataset.estado; // "1" o "0"
 
   // Si ya está activo, no hacer nada
-  if (btn.classList.contains('is-active')) return;
+  if (btn.classList.contains('is-active') || wrap.classList.contains('is-loading')) return;
 
   const url = wrap.dataset.url;
   const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
@@ -51,7 +51,17 @@ document.addEventListener('click', async (e) => {
     // Actualizar badge "Estado"
     const card = wrap.closest('.card, .device-card, .actuator-card') || document;
     const badge = card.querySelector('.js-estado-badge');
-    if (badge) badge.textContent = desired;
+    const isOn = desired === '1';
+    if (badge) badge.textContent = isOn ? 'ON' : 'OFF';
+
+    const stateWrap = card.querySelector('.js-estado-badge-wrap');
+    if (stateWrap) {
+      stateWrap.classList.remove('text-light-success', 'text-light-secondary');
+      stateWrap.classList.add(isOn ? 'text-light-success' : 'text-light-secondary');
+
+      const icon = stateWrap.querySelector('i');
+      if (icon) icon.className = `ph-duotone ${isOn ? 'ph-check-circle' : 'ph-stop-circle'}`;
+    }
 
   } catch (err) {
     console.error(err);

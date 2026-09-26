@@ -141,7 +141,7 @@
                         limit: 800
                     });
 
-                    const res = await fetch("{{ route('lecturas.data') }}?" + params.toString());
+                    const res = await fetch("{{ route('lecturas.data', [], false) }}?" + params.toString());
                     const json = await res.json();
 
                     const ctx = document.getElementById('chartLecturas');

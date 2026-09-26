@@ -364,7 +364,7 @@
                                                 :id="$d->id"
                                                 :is-on="$isOn"
                                                 :disabled="$disabled"
-                                                :url="url('/dispositivos/'.$d->id.'/manual')"
+                                                :url="route('dispositivos.manual', ['dispositivo' => $d->id], false)"
                                             />
                                         </div>
                                     </div>
@@ -644,7 +644,7 @@
         }
 
         function refreshPanel() {
-            $.get("{{ route('panel.data') }}").done(function (r) {
+            $.get("{{ route('panel.data', [], false) }}").done(function (r) {
                 $('#js-last-refresh').text((r.ts || '').replace(' ', ' · '));
 
                 if (r.modo) setModoUI(r.modo);
@@ -701,35 +701,6 @@
         setInterval(refreshPanel, 12000);
         setTimeout(refreshPanel, 2000);
 
-        $(document).on('click', '.js-toggle', function () {
-            const btn = $(this);
-            const wrap = btn.closest('.toggle-onoff');
-
-            if (wrap.data('disabled') == 1) return;
-            if (btn.hasClass('is-active')) return;
-
-            const estado = btn.data('estado');
-            const url = wrap.data('url') || `/dispositivos/${wrap.data('id')}/manual`;
-
-            $.ajax({
-                url,
-                method: 'POST',
-                data: { estado },
-                headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
-            }).done(function () {
-                wrap.find('.js-toggle').removeClass('is-active').attr('aria-pressed','false');
-                btn.addClass('is-active').attr('aria-pressed','true');
-
-                const isOn = String(estado) === '1';
-                const badge = wrap.closest('.card').find('.js-estado-badge');
-                badge.text(isOn ? 'ON' : 'OFF');
-
-                const stateWrap = wrap.closest('.card').find('.js-estado-badge-wrap');
-                stateWrap.removeClass('text-light-success text-light-secondary')
-                         .addClass(isOn ? 'text-light-success' : 'text-light-secondary');
-                stateWrap.find('i').attr('class', `ph-duotone ${isOn ? 'ph-check-circle' : 'ph-stop-circle'}`);
-            });
-        });
     </script>
     @endpush
 </x-app-layout>
