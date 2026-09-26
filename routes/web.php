@@ -13,6 +13,13 @@ use App\Http\Controllers\ActuadorController;
 
 use Illuminate\Support\Facades\Route;
 
+
+/*
+|--------------------------------------------------------------------------
+| PÁGINA PRINCIPAL
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
     return auth()->check()
         ? redirect()->route('panel')
@@ -20,19 +27,59 @@ Route::get('/', function () {
 })->name('welcome');
 
 
+/*
+|--------------------------------------------------------------------------
+| AUTENTICACIÓN
+|--------------------------------------------------------------------------
+*/
+
 require __DIR__.'/auth.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| RUTAS PROTEGIDAS
+|--------------------------------------------------------------------------
+*/
+
 Route::middleware(['auth'])->group(function () {
 
-    // PERFIL
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    /*
+    |--------------------------------------------------------------------------
+    | PERFIL
+    |--------------------------------------------------------------------------
+    */
 
-    // PANEL
-    Route::get('/panel', [PanelController::class, 'index'])->name('panel');
-    Route::get('/panel/data', [PanelController::class, 'data'])->name('panel.data');
+    Route::get('/profile', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
 
-    // ✅ LECTURAS (admin u operador)
+    Route::patch('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
+    Route::delete('/profile', [ProfileController::class, 'destroy'])
+        ->name('profile.destroy');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PANEL
+    |--------------------------------------------------------------------------
+    */
+
+    Route::get('/panel', [PanelController::class, 'index'])
+        ->name('panel');
+
+    Route::get('/panel/data', [PanelController::class, 'data'])
+        ->name('panel.data');
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | LECTURAS
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/lecturas', [LecturaController::class, 'index'])
         ->middleware('role:admin,operador')
         ->name('lecturas.index');
@@ -41,22 +88,53 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:admin,operador')
         ->name('lecturas.data');
 
-    // ✅ SENSORES (ver: admin u operador)
+
+    /*
+    |--------------------------------------------------------------------------
+    | SENSORES
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/sensores', [SensorController::class, 'index'])
         ->middleware('role:admin,operador')
         ->name('sensores.index');
 
-    // ✅ ACTUADORES (admin u operador)
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACTUADORES
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/actuadores', [ActuadorController::class, 'index'])
         ->middleware('role:admin,operador')
         ->name('actuadores.index');
 
-    // ✅ Manual ON/OFF (admin u operador)
-    Route::post('/dispositivos/{dispositivo}/manual', [DispositivoManualController::class, 'setEstado'])
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONTROL MANUAL ON/OFF
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
+    Route::post(
+        '/dispositivos/{dispositivo}/manual',
+        [DispositivoManualController::class, 'setEstado']
+    )
         ->middleware('role:admin,operador')
         ->name('dispositivos.manual');
 
-    // ✅ Alertas (admin u operador)
+
+    /*
+    |--------------------------------------------------------------------------
+    | ALERTAS
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/alertas', [AlertaController::class, 'index'])
         ->middleware('role:admin,operador')
         ->name('alertas.index');
@@ -65,27 +143,102 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:admin,operador')
         ->name('alertas.visto');
 
-    // ✅ Config solo lectura (admin u operador)
+
+    /*
+    |--------------------------------------------------------------------------
+    | CONFIGURACIÓN - SOLO LECTURA
+    | Admin u operador
+    |--------------------------------------------------------------------------
+    */
+
     Route::get('/config', [ConfiguracionController::class, 'index'])
         ->middleware('role:admin,operador')
         ->name('config.index');
 
-    // 🔒 SOLO ADMIN
+
+    /*
+    |--------------------------------------------------------------------------
+    | SOLO ADMINISTRADOR
+    |--------------------------------------------------------------------------
+    */
+
     Route::middleware('role:admin')->group(function () {
 
-        Route::resource('/control-reglas', ControlReglaController::class)->only(['index','edit','update']);
-        Route::resource('/dispositivos', DispositivoController::class)->only(['index','edit','update']);
+        /*
+        |--------------------------------------------------------------------------
+        | REGLAS DE CONTROL
+        |--------------------------------------------------------------------------
+        */
 
-        Route::get('/config/edit', [ConfiguracionController::class, 'edit'])->name('config.edit');
-        Route::put('/config', [ConfiguracionController::class, 'update'])->name('config.update');
+        Route::resource('/control-reglas', ControlReglaController::class)
+            ->only(['index', 'edit', 'update']);
 
-        // sensores admin
-        Route::get('/sensores/{sensor}/edit', [SensorController::class, 'edit'])->name('sensores.edit');
-        Route::put('/sensores/{sensor}', [SensorController::class, 'update'])->name('sensores.update');
-        Route::post('/sensores/{sensor}/toggle', [SensorController::class, 'toggle'])->name('sensores.toggle');
-        //actuadores admin
-        Route::get('/actuadores/{dispositivo}/edit', [DispositivoController::class, 'edit'])->name('dispositivos.edit');
-        Route::put('/actuadores/{dispositivo}', [DispositivoController::class, 'update'])->name('dispositivos.update');
+
+        /*
+        |--------------------------------------------------------------------------
+        | DISPOSITIVOS
+        |--------------------------------------------------------------------------
+        |
+        | Genera automáticamente:
+        |
+        | dispositivos.index
+        | dispositivos.edit
+        | dispositivos.update
+        |
+        */
+
+        Route::resource('/dispositivos', DispositivoController::class)
+            ->only(['index', 'edit', 'update']);
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | CONFIGURACIÓN
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/config/edit', [ConfiguracionController::class, 'edit'])
+            ->name('config.edit');
+
+        Route::put('/config', [ConfiguracionController::class, 'update'])
+            ->name('config.update');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | SENSORES - ADMINISTRACIÓN
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/sensores/{sensor}/edit', [SensorController::class, 'edit'])
+            ->name('sensores.edit');
+
+        Route::put('/sensores/{sensor}', [SensorController::class, 'update'])
+            ->name('sensores.update');
+
+        Route::post('/sensores/{sensor}/toggle', [SensorController::class, 'toggle'])
+            ->name('sensores.toggle');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | ACTUADORES - ADMINISTRACIÓN
+        |--------------------------------------------------------------------------
+        |
+        | IMPORTANTE:
+        | Estas rutas usan actuadores.edit y actuadores.update
+        | para no colisionar con dispositivos.edit y dispositivos.update.
+        |
+        */
+
+        Route::get(
+            '/actuadores/{dispositivo}/edit',
+            [DispositivoController::class, 'edit']
+        )->name('actuadores.edit');
+
+        Route::put(
+            '/actuadores/{dispositivo}',
+            [DispositivoController::class, 'update']
+        )->name('actuadores.update');
     });
 });
-
