@@ -1,5 +1,9 @@
 <x-app-layout header-title="Actuadores">
-    @php($modoVista = in_array($modo ?? null, ['manual', 'automatico'], true) ? $modo : 'automatico')
+    @php
+        $modoVista = in_array($modo ?? null, ['manual', 'automatico'], true)
+            ? $modo
+            : 'automatico';
+    @endphp
     <div class="container-fluid">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
