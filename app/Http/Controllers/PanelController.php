@@ -8,6 +8,7 @@ use App\Models\Alerta;
 use App\Models\Actuacion;
 use App\Models\ControlRegla;
 use App\Models\IotCommand;
+use App\Models\ConfiguracionAutomatica;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,7 @@ class PanelController extends Controller
         $user = Auth::user();
         $role = $user->role ?? 'lector';
 
-        $modo = DB::table('configuracion_automatica')->value('modo_global') ?? 'automatico';
+        $modo = ConfiguracionAutomatica::modoGlobal();
 
         $roleLabel = match($role) {
             'admin' => 'Administrador',
@@ -105,7 +106,7 @@ class PanelController extends Controller
         $user = Auth::user();
         $role = $user->role ?? 'lector';
 
-        $modo = DB::table('configuracion_automatica')->value('modo_global') ?? 'automatico';
+        $modo = ConfiguracionAutomatica::modoGlobal();
 
         $sensores = Sensor::where('activo', true)
             ->orderBy('id')

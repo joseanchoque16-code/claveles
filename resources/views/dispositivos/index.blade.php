@@ -1,4 +1,5 @@
 <x-app-layout header-title="Actuadores">
+    @php($modoVista = in_array($modo ?? null, ['manual', 'automatico'], true) ? $modo : 'automatico')
     <div class="container-fluid">
 
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -6,8 +7,8 @@
                 <h2 class="mb-0">Actuadores</h2>
                 <small class="text-muted">
                     Control manual ON/OFF · Modo:
-                    <b class="{{ ($modo ?? '') === 'manual' ? 'text-warning' : 'text-success' }}">
-                        {{ strtoupper($modo ?? '—') }}
+                    <b class="{{ $modoVista === 'manual' ? 'text-warning' : 'text-success' }}">
+                        {{ strtoupper($modoVista) }}
                     </b>
                 </small>
             </div>
@@ -23,7 +24,7 @@
         <div id="ui-msg" class="alert d-none" role="alert"></div>
 
         {{-- Aviso si está en automático --}}
-        @if(($modo ?? 'automatico') !== 'manual')
+        @if($modoVista !== 'manual')
             <div class="alert alert-info">
                 El sistema está en <b>AUTOMÁTICO</b>. Para usar control manual, el admin debe cambiar a <b>MODO MANUAL</b>.
             </div>
@@ -54,7 +55,7 @@
                                 // Si tu columna no se llama "habilitado", cambiá acá por "activo" o la que uses.
                                 $habil = (bool)($d->habilitado ?? true);
 
-                                $isManualMode = (($modo ?? 'automatico') === 'manual');
+                                $isManualMode = ($modoVista === 'manual');
                                 $disabled = (!$habil) || (!$isManualMode);
                             @endphp
 

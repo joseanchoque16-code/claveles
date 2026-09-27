@@ -7,6 +7,7 @@ use App\Models\Actuacion;
 use App\Models\Dispositivo;
 use App\Models\IotCommand;
 use App\Models\Sensor;
+use App\Models\ConfiguracionAutomatica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -24,7 +25,7 @@ class DispositivoManualController extends Controller
         }
 
         $nuevoEstado = (int) $data['estado'];
-        $modo = DB::table('configuracion_automatica')->value('modo_global') ?? 'automatico';
+        $modo = ConfiguracionAutomatica::modoGlobal();
 
         if ($modo !== 'manual') {
             return response()->json([

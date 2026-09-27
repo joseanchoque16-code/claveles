@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Sensor;
 use App\Models\Alerta;
+use App\Models\ConfiguracionAutomatica;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -36,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             }
 
             // Modo global (manual/automatico)
-            $modo = DB::table('configuracion_automatica')->value('modo_global') ?? 'manual';
+            $modo = ConfiguracionAutomatica::modoGlobal();
 
             // Alertas no vistas (solo admin/operador)
             $alertasNoVistas = in_array($role, ['admin','operador'])
@@ -54,4 +55,3 @@ class AppServiceProvider extends ServiceProvider
     }
 
 }
-

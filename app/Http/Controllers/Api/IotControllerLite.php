@@ -112,7 +112,7 @@ class IotControllerLite extends Controller
                 ->update(['status' => 'expired', 'updated_at' => now()]);
         }
 
-        $conf = DB::table('configuracion_automatica')->first();
+        $conf = DB::table('configuracion_automatica')->orderBy('id')->first();
 
         $dispositivos = Dispositivo::where('habilitado', true)
             ->orderBy('id')

@@ -14,4 +14,12 @@ class ConfiguracionAutomatica extends Model
         'timezone',
         'config_version',
     ];
+
+    /** Devuelve el modo global único que deben compartir la UI y los controladores. */
+    public static function modoGlobal(): string
+    {
+        $modo = static::query()->orderBy('id')->value('modo_global');
+
+        return in_array($modo, ['manual', 'automatico'], true) ? $modo : 'automatico';
+    }
 }

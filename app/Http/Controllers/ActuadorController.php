@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dispositivo;
-use Illuminate\Support\Facades\DB;
+use App\Models\ConfiguracionAutomatica;
 
 class ActuadorController extends Controller
 {
@@ -12,7 +12,7 @@ class ActuadorController extends Controller
         $dispositivos = Dispositivo::orderBy('id')->get();
 
         // modo global (manual/automatico)
-        $modo = DB::table('configuracion_automatica')->value('modo_global') ?? 'automatico';
+        $modo = ConfiguracionAutomatica::modoGlobal();
 
         return view('dispositivos.index', compact('dispositivos', 'modo'));
     }

@@ -9,7 +9,7 @@ class ConfiguracionController extends Controller
 {
     private function getOrCreateConfig()
     {
-        $conf = DB::table('configuracion_automatica')->first();
+        $conf = DB::table('configuracion_automatica')->orderBy('id')->first();
 
         if (!$conf) {
             DB::table('configuracion_automatica')->insert([
@@ -21,7 +21,7 @@ class ConfiguracionController extends Controller
                 'updated_at' => now(),
             ]);
 
-            $conf = DB::table('configuracion_automatica')->first();
+            $conf = DB::table('configuracion_automatica')->orderBy('id')->first();
         }
 
         return $conf;
