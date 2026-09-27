@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dispositivo;
+use App\Models\ConfiguracionAutomatica;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -11,7 +12,9 @@ class DispositivoController extends Controller
     public function index()
     {
         $dispositivos = Dispositivo::orderBy('id')->get();
-        return view('dispositivos.index', compact('dispositivos'));
+        $modo = ConfiguracionAutomatica::modoGlobal();
+
+        return view('dispositivos.index', compact('dispositivos', 'modo'));
     }
 
     public function edit(Dispositivo $dispositivo)
