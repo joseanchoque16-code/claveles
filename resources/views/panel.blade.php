@@ -203,13 +203,18 @@
                             $estadoTexto = 'Normal';
 
                             if ($item['codigo'] === 'S_TEMP' && $valor !== null) {
-                                if ($valor >= 30 || $valor <= 5) { $estadoClase = 'text-light-danger'; $estadoTexto = 'Crítico'; }
-                                elseif ($valor >= 26 || $valor <= 10) { $estadoClase = 'text-light-warning'; $estadoTexto = 'Advertencia'; }
+                                if ($valor < 10 || $valor >= 24) { $estadoClase = 'text-light-danger'; $estadoTexto = 'Crítico'; }
+                                elseif ($valor < 14 || $valor >= 22) { $estadoClase = 'text-light-warning'; $estadoTexto = 'Advertencia'; }
                             }
 
                             if ($item['codigo'] === 'S_HSUELO' && $valor !== null) {
-                                if ($valor < 35) { $estadoClase = 'text-light-danger'; $estadoTexto = 'Crítico'; }
-                                elseif ($valor < 50) { $estadoClase = 'text-light-warning'; $estadoTexto = 'Advertencia'; }
+                                if ($valor > 85) { $estadoClase = 'text-light-danger'; $estadoTexto = 'Exceso'; }
+                                elseif ($valor < 60 || $valor > 75) { $estadoClase = 'text-light-warning'; $estadoTexto = 'Fuera de rango'; }
+                            }
+
+                            if ($item['codigo'] === 'S_HR' && $valor !== null && $valor >= 75) {
+                                $estadoClase = 'text-light-warning';
+                                $estadoTexto = 'Ventilación requerida';
                             }
 
                             $reglasSensor = $reglasResumen->where('sensor_codigo', $item['codigo']);
@@ -319,6 +324,8 @@
                                     $isManualMode = (($modo ?? 'automatico') === 'manual');
                                     $disabled = !($d->habilitado ?? true) || !$isManualMode;
                                     $isOn = ($d->estado === 'ON') || ((string) $d->estado === '1') || ($d->estado === 1) || ($d->estado === true);
+                                    $pendingCommand = $pendingCommands->get($d->id);
+                                    $isPending = $pendingCommand !== null;
 
                                     $deviceIcon = match($d->codigo) {
                                         'D_RIEGO' => 'ph-drop-half-bottom',
@@ -337,9 +344,9 @@
                                                     <i class="ph-duotone {{ $deviceIcon }}"></i>
                                                 </span>
 
-                                                <span class="badge {{ $isOn ? 'text-light-success' : 'text-light-secondary' }} js-estado-badge-wrap">
-                                                    <i class="ph-duotone {{ $isOn ? 'ph-check-circle' : 'ph-stop-circle' }}"></i>
-                                                    <span class="js-estado-badge">{{ $isOn ? 'ON' : 'OFF' }}</span>
+                                                <span class="badge {{ $isPending ? 'text-light-warning' : ($isOn ? 'text-light-success' : 'text-light-secondary') }} js-estado-badge-wrap">
+                                                    <i class="ph-duotone {{ $isPending ? 'ph-clock' : ($isOn ? 'ph-check-circle' : 'ph-stop-circle') }}"></i>
+                                                    <span class="js-estado-badge">{{ $isPending ? 'PENDIENTE: ' . strtoupper($pendingCommand->accion) : ($isOn ? 'ON' : 'OFF') }}</span>
                                                 </span>
                                             </div>
 
@@ -680,12 +687,13 @@
                     wrap.find(`.js-toggle[data-estado="${isOn ? 1 : 0}"]`).addClass('is-active').attr('aria-pressed','true');
 
                     const badge = wrap.closest('.card').find('.js-estado-badge');
-                    badge.text(isOn ? 'ON' : 'OFF');
+                    badge.text(d.pending ? `PENDIENTE: ${Number(d.pending_estado) === 1 ? 'ON' : 'OFF'}` : (isOn ? 'ON' : 'OFF'));
 
                     const stateWrap = wrap.closest('.card').find('.js-estado-badge-wrap');
                     stateWrap.removeClass('text-light-success text-light-secondary')
-                             .addClass(isOn ? 'text-light-success' : 'text-light-secondary');
-                    stateWrap.find('i').attr('class', `ph-duotone ${isOn ? 'ph-check-circle' : 'ph-stop-circle'}`);
+                             .removeClass('text-light-warning')
+                             .addClass(d.pending ? 'text-light-warning' : (isOn ? 'text-light-success' : 'text-light-secondary'));
+                    stateWrap.find('i').attr('class', `ph-duotone ${d.pending ? 'ph-clock' : (isOn ? 'ph-check-circle' : 'ph-stop-circle')}`);
                 });
             });
         }

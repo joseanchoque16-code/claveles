@@ -7,6 +7,7 @@ use App\Models\Dispositivo;
 use App\Models\Alerta;
 use App\Models\Actuacion;
 use App\Models\ControlRegla;
+use App\Models\IotCommand;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -39,9 +40,18 @@ class PanelController extends Controller
         $alertasNoVistas = 0;
         $eventos = collect();
         $reglasResumen = collect();
+        $pendingCommands = collect();
 
         if (in_array($role, ['admin', 'operador'])) {
             $dispositivos = Dispositivo::orderBy('id')->get();
+            if (config('app.iot_commands_enabled')) {
+                $pendingCommands = IotCommand::where('status', 'pending')
+                    ->where('expires_at', '>', now())
+                    ->orderByDesc('requested_at')
+                    ->get(['dispositivo_id', 'accion', 'command_id'])
+                    ->unique('dispositivo_id')
+                    ->keyBy('dispositivo_id');
+            }
 
             $alertas = Alerta::orderByDesc('created_at')
                 ->limit(5)
@@ -85,7 +95,8 @@ class PanelController extends Controller
             'resumen',
             'eventos',
             'reglasResumen',
-            'role'
+            'role',
+            'pendingCommands'
         ));
     }
 
@@ -118,8 +129,25 @@ class PanelController extends Controller
         if (in_array($role, ['admin', 'operador'])) {
             $payload['alertasNoVistas'] = Alerta::where('visto', false)->count();
 
+            $pendingCommands = collect();
+            if (config('app.iot_commands_enabled')) {
+                $pendingCommands = IotCommand::where('status', 'pending')
+                    ->where('expires_at', '>', now())
+                    ->orderByDesc('requested_at')
+                    ->get(['dispositivo_id', 'accion', 'command_id'])
+                    ->unique('dispositivo_id')
+                    ->keyBy('dispositivo_id');
+            }
+
             $payload['dispositivos'] = Dispositivo::orderBy('id')
                 ->get(['id', 'codigo', 'nombre', 'estado', 'habilitado', 'updated_at']);
+
+            $payload['dispositivos']->transform(function ($device) use ($pendingCommands) {
+                $command = $pendingCommands->get($device->id);
+                $device->pending = $command !== null;
+                $device->pending_estado = $command?->accion === 'on' ? 1 : ($command ? 0 : null);
+                return $device;
+            });
         }
 
         return response()->json($payload);

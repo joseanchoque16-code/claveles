@@ -21,4 +21,8 @@ class Dispositivo extends Model
     public function actuaciones() {
         return $this->hasMany(Actuacion::class);
     }
+
+    public function comandos() {
+        return $this->hasMany(IotCommand::class);
+    }
 }

@@ -3,6 +3,9 @@
 return [
 
     'iot_api_key' => env('IOT_API_KEY'),
+    'iot_device_key' => env('IOT_DEVICE_KEY'),
+    'iot_module_uid' => env('IOT_MODULE_UID'),
+    'iot_commands_enabled' => env('IOT_COMMANDS_ENABLED', false),
 
     /*
     |--------------------------------------------------------------------------

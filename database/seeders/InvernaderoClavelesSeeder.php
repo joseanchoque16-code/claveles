@@ -150,8 +150,8 @@ class InvernaderoClavelesSeeder extends Seeder
                     'dispositivo_id' => $dispIds['D_FAN'],
                     'activa' => 1,
                     'prioridad' => 10,
-                    'umbral_on' => 26.000,   // ON si >= 26
-                    'umbral_off' => 22.000,  // OFF si <= 22
+                    'umbral_on' => 22.000,   // Tesis: ventilación ON si T >= 22 °C
+                    'umbral_off' => 18.000,  // Tesis: ventilación OFF si T <= 18 °C
                     'min_on_s' => 60,
                     'min_off_s' => 60,
                     'hora_inicio' => null,
@@ -166,8 +166,8 @@ class InvernaderoClavelesSeeder extends Seeder
                     'dispositivo_id' => $dispIds['D_FAN'],
                     'activa' => 1,
                     'prioridad' => 10,
-                    'umbral_on' => 80.000,   // ON si >= 80
-                    'umbral_off' => 75.000,  // OFF si <= 75
+                    'umbral_on' => 75.000,   // Tesis: ventilación ON si HR >= 75 %
+                    'umbral_off' => 65.000,  // Tesis: ventilación OFF si HR <= 65 %
                     'min_on_s' => 60,
                     'min_off_s' => 60,
                     'hora_inicio' => null,
@@ -198,8 +198,8 @@ class InvernaderoClavelesSeeder extends Seeder
                     'dispositivo_id' => $dispIds['D_CALEF'],
                     'activa' => 0,          // apagada por defecto
                     'prioridad' => 30,
-                    'umbral_on' => 9.000,   // ON si <= 9
-                    'umbral_off' => 14.000, // OFF si >= 14
+                    'umbral_on' => 10.000,  // Tesis: calefacción ON si T <= 10 °C
+                    'umbral_off' => 14.000, // Tesis: calefacción OFF si T >= 14 °C
                     'min_on_s' => 120,
                     'min_off_s' => 120,
                     'hora_inicio' => null,
