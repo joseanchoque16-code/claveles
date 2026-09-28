@@ -181,14 +181,12 @@ Route::middleware(['auth'])->group(function () {
         |
         | Genera automáticamente:
         |
-        | dispositivos.index
-        | dispositivos.edit
-        | dispositivos.update
+        | dispositivos.index/create/store/edit/update
         |
         */
 
         Route::resource('/dispositivos', DispositivoController::class)
-            ->only(['index', 'edit', 'update']);
+            ->only(['index', 'create', 'store', 'edit', 'update']);
 
 
         /*

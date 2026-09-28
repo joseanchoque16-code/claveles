@@ -68,22 +68,6 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex align-items-center gap-4">
-                                <div class="text-end">
-                                    <p class="text-secondary mb-1">Temperatura actual</p>
-                                    <h2 class="text-primary mb-0">
-                                        <span class="js-sensor-value" data-id="{{ optional($tempSensor)->id }}">
-                                            {{ $tempVal !== null ? number_format($tempVal, 1) : '—' }}
-                                        </span>°C
-                                    </h2>
-                                </div>
-                                <div class="text-end">
-                                    <p class="text-secondary mb-1">Nivel de agua</p>
-                                    <h2 class="text-info mb-0">
-                                        <span class="js-water-pct-main">{{ round($nivelPct) }}</span>%
-                                    </h2>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

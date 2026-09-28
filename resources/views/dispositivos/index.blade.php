@@ -18,9 +18,14 @@
             </div>
 
             @if(auth()->user()->role === 'admin')
-                <a class="btn btn-outline-primary" href="{{ route('config.edit') }}">
-                    <i class="ph-duotone ph-gear"></i> Configuración
-                </a>
+                <div class="d-flex gap-2">
+                    <a class="btn btn-primary" href="{{ route('dispositivos.create') }}">
+                        <i class="ph-duotone ph-plus"></i> Agregar actuador
+                    </a>
+                    <a class="btn btn-outline-primary" href="{{ route('config.edit') }}">
+                        <i class="ph-duotone ph-gear"></i> Configuración
+                    </a>
+                </div>
             @endif
         </div>
 
