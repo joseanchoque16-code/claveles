@@ -9,6 +9,7 @@ use App\Models\Lectura;
 use App\Models\Sensor;
 use App\Models\IotCommand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class IotControllerLite extends Controller
@@ -180,6 +181,13 @@ class IotControllerLite extends Controller
                     'expires_at' => $command->expires_at?->toIso8601String(),
                 ])
                 ->values();
+        }
+
+        // El sync autenticado funciona como heartbeat del ESP32. Limita las
+        // escrituras de caché aunque el firmware consulte cada dos segundos.
+        $lastHeartbeat = Cache::get('iot.esp32.last_seen');
+        if (!is_numeric($lastHeartbeat) || now()->timestamp - (int) $lastHeartbeat >= 5) {
+            Cache::forever('iot.esp32.last_seen', now()->timestamp);
         }
 
         return response()->json([

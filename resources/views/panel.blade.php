@@ -54,6 +54,15 @@
                                 <div class="d-flex flex-wrap align-items-center gap-3 text-secondary">
                                     <span><b>Rol:</b> {{ $roleLabel }}</span>
                                     <span><b>Modo:</b> <span id="js-top-modo">{{ strtoupper($modo) }}</span></span>
+                                    <span class="d-inline-flex align-items-center gap-2">
+                                        <b>ESP32:</b>
+                                        <span id="js-esp32-status" class="badge {{ $esp32Status['state'] === 'online' ? 'bg-success' : ($esp32Status['state'] === 'offline' ? 'bg-danger' : 'bg-secondary') }}">
+                                            {{ $esp32Status['state'] === 'online' ? 'CONECTADO' : ($esp32Status['state'] === 'offline' ? 'SIN COMUNICACIÓN' : 'SIN REGISTRO') }}
+                                        </span>
+                                        <small id="js-esp32-last-seen" class="text-secondary">
+                                            {{ $esp32Status['last_seen'] ? 'Último sync: ' . date('H:i:s', $esp32Status['last_seen']) : 'Esperando primer sync' }}
+                                        </small>
+                                    </span>
                                     <span><b>Última actualización:</b> <span id="js-last-refresh">—</span></span>
                                     <span><b>Alertas activas:</b> <span id="js-res-novistas">{{ $noVistas }}</span></span>
                                 </div>
@@ -621,6 +630,30 @@
             $('#js-top-modo').text(txt);
         }
 
+        function setEsp32Status(status) {
+            const state = status?.state || 'never';
+            const labels = {
+                online: 'CONECTADO',
+                offline: 'SIN COMUNICACIÓN',
+                never: 'SIN REGISTRO'
+            };
+            const classes = {
+                online: 'bg-success',
+                offline: 'bg-danger',
+                never: 'bg-secondary'
+            };
+
+            $('#js-esp32-status')
+                .removeClass('bg-success bg-danger bg-secondary')
+                .addClass(classes[state] || classes.never)
+                .text(labels[state] || labels.never);
+
+            const timestamp = Number(status?.last_seen);
+            $('#js-esp32-last-seen').text(timestamp
+                ? `Último sync: ${new Date(timestamp * 1000).toLocaleTimeString()}`
+                : 'Esperando primer sync');
+        }
+
         function initMobileSlider(selector, slidesToShowMobile = 1) {
             const $el = $(selector);
             if (!$el.length) return;
@@ -655,6 +688,7 @@
                 $('#js-last-refresh').text((r.ts || '').replace(' ', ' · '));
 
                 if (r.modo) setModoUI(r.modo);
+                setEsp32Status(r.esp32);
 
                 if (r.resumen) {
                     $('#js-res-sensores').text(r.resumen.sensores_activos ?? 0);

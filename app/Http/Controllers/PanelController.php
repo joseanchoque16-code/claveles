@@ -10,6 +10,7 @@ use App\Models\ControlRegla;
 use App\Models\IotCommand;
 use App\Models\ConfiguracionAutomatica;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 class PanelController extends Controller
@@ -20,6 +21,7 @@ class PanelController extends Controller
         $role = $user->role ?? 'lector';
 
         $modo = ConfiguracionAutomatica::modoGlobal();
+        $esp32Status = $this->esp32Status();
 
         $roleLabel = match($role) {
             'admin' => 'Administrador',
@@ -97,7 +99,8 @@ class PanelController extends Controller
             'eventos',
             'reglasResumen',
             'role',
-            'pendingCommands'
+            'pendingCommands',
+            'esp32Status'
         ));
     }
 
@@ -114,6 +117,7 @@ class PanelController extends Controller
 
         $payload = [
             'modo' => $modo,
+            'esp32' => $this->esp32Status(),
             'sensores' => $sensores,
             'ts' => now()->toDateTimeString(),
             'resumen' => [
@@ -152,6 +156,24 @@ class PanelController extends Controller
         }
 
         return response()->json($payload);
+    }
+
+    private function esp32Status(): array
+    {
+        $lastSeen = Cache::get('iot.esp32.last_seen');
+        if (!is_numeric($lastSeen)) {
+            return ['state' => 'never', 'online' => false, 'last_seen' => null, 'seconds_ago' => null];
+        }
+
+        $lastSeen = (int) $lastSeen;
+        $secondsAgo = max(0, now()->timestamp - $lastSeen);
+
+        return [
+            'state' => $secondsAgo <= 15 ? 'online' : 'offline',
+            'online' => $secondsAgo <= 15,
+            'last_seen' => $lastSeen,
+            'seconds_ago' => $secondsAgo,
+        ];
     }
 
     private function mapearReglasResumen($reglas)
